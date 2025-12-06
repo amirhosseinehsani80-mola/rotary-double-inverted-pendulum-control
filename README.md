@@ -1,157 +1,68 @@
-# Rotary Double Inverted Pendulum — Advanced Control Implementation
+# Rotary Double Inverted Pendulum 
 
-This repository contains the full MATLAB & Simulink implementation of advanced control strategies for a **rotary double inverted pendulum** (Quanser DBPEN-ROT).  
-The project covers everything from nonlinear modeling to observer design, and includes simulations, stability analysis, and reference tracking experiments.
+This repository contains MATLAB and Simulink files related to modeling and controlling a rotary double inverted pendulum. The work includes nonlinear modeling, linearization, stability analysis, state-feedback control design, observer design, and reference tracking experiments. A full project report is included.
 
----
+<img width="1196" height="827" alt="fig1" src="https://github.com/user-attachments/assets/0c1148de-6c7e-4dc9-b225-62c3359c7711" />
 
-## 📌 Project Overview
+## Project Summary
 
-The rotary double inverted pendulum is a **highly nonlinear, unstable, multivariable system**, making it a classical benchmark for advanced control methods.  
-This project includes:
+The rotary double inverted pendulum is a nonlinear and unstable system commonly used for evaluating control algorithms. In this project:
 
-- Nonlinear dynamic modeling using **Euler–Lagrange equations**
-- MATLAB symbolic derivation for full system dynamics
-- Linearization around the upright equilibrium using **Taylor series**
-- Stability analysis (eigenvalues + Lyapunov test)
-- **State-feedback control** (slow & fast pole placement)
-- **Robustness and disturbance rejection** simulations
-- **Full-order** and **reduced-order** observers
-- Reference tracking:
-  - Stair-shaped signal
-  - Sinusoidal \( q \) reference
-  - Constant \( \alpha \) reference
-  - Regulation of \( \gamma \)
+• Nonlinear equations were derived using the Euler–Lagrange method  
+• The system was linearized around the upright equilibrium  
+• Stability was analyzed using eigenvalues and Lyapunov methods  
+• State-feedback controllers were designed and compared (slow vs fast pole placement)  
+• Robustness and disturbance rejection were evaluated  
+• Full-order and reduced-order observers were implemented  
+• Stair-shaped and sinusoidal reference tracking were tested
 
-The work is based on the complete report included in this repository.
+## System Overview
+(Insert system diagram image here)
 
----
+## Nonlinear and Linear Models
+(Insert modeling or equation structure images here)
 
-## 🧩 System Architecture
+## State-Feedback Control
+Slow pole placement:
+(Insert slow response plot here)
 
-(*Insert your image here — drag & drop*)
+Fast pole placement:
+(Insert fast response plot here)
 
----
+## Reference Tracking with Integral Action
+(Insert tracking results here)
 
-## 🧮 Nonlinear Modeling
+## Robustness and Disturbance Analysis
+(Insert robustness and disturbance rejection plots here)
 
-The nonlinear dynamic equations of motion were derived using the **Euler–Lagrange method** and validated in MATLAB.  
-Symbolic computation was used to generate expressions for:
+## Observer Designs
+Full-order observer:
+(Insert full-order observer results here)
 
-- Kinetic energy of all links  
-- Potential energy  
-- Complete Lagrangian  
-- 3 coupled nonlinear differential equations  
+Reduced-order observer:
+(Insert reduced-order observer results here)
 
-(*Insert model diagram or math flowchart here*)
+## Multi-Reference Tracking (q, alpha, gamma)
+(Insert multi-reference tracking plots here)
 
----
+## Files Included
 
-## 🔄 Linearization & State-Space Model
+• Advanced_Control_Inverted_Pendulum_Report.pdf  
+• README.md  
+• LICENSE  
 
-The system is linearized around the upright equilibrium.  
-The linear model is expressed as:
+You may add folders such as `src`, `simulink`, or `images` if needed.
 
-\[
-\dot{x} = Ax + Bu
-\]
+## How to Use
 
-with 6 states:
+1. Open MATLAB  
+2. Load the provided scripts  
+3. Open the corresponding Simulink models  
+4. Run simulations based on each section of the report  
 
-- \( q, \alpha, \gamma \) (angles)  
-- \( \dot{q}, \dot{\alpha}, \dot{\gamma} \) (angular velocities)
+Tested with MATLAB R2022b and later.
 
-Controllability and observability are verified (both full rank).
+## Author
 
-(*Insert linearization figure or stability diagram here*)
-
----
-
-## 🎛️ State-Feedback Controller
-
-Two controller designs were implemented:
-
-### **Slow Poles Controller**
-- Stable, smooth response  
-- Low overshoot  
-- Lower control effort  
-
-(*Insert slow poles step response image here*)
-
-### **Fast Poles Controller**
-- Very quick settling  
-- High overshoot  
-- Large control effort (not ideal for actuators)
-
-(*Insert fast poles step response image here*)
-
----
-
-## 📈 Reference Tracking with Integral Action
-
-A stair-shaped reference for angle \( q \) is tracked using:
-
-- Augmented state-space model  
-- Integral action  
-- State feedback controller  
-
-(*Insert tracking figure here*)
-
-The controller achieves zero steady-state error while maintaining pendulum stability.
-
----
-
-## 🛡️ Robustness & Disturbance Rejection
-
-The system is tested under:
-
-- **−10% parameter variations**
-- **Impulse-like external disturbance**
-
-Results show the controller maintains tracking performance and stability.
-
-(*Insert robustness and disturbance rejection plots here*)
-
----
-
-## 👁️ Observer Design
-
-Both observer types were designed and tested:
-
-### **Full-Order Observer**
-- Estimates all 7 augmented states  
-- Slower than reduced observer  
-- Requires higher gain tuning  
-
-(*Insert full-order observer results*)
-
-### **Reduced-Order Observer**
-- Estimates only the angles \( q, \alpha, \gamma \)  
-- Much faster convergence  
-- Higher numerical stability  
-
-(*Insert reduced-order observer plots here*)
-
----
-
-## 🌊 Tracking Multiple References (q, α, γ)
-
-The controller is extended to track:
-
-- Sinusoidal reference for **q**
-- Step reference for **α**
-- Zero reference for **γ**
-
-Several amplitudes and frequencies are tested.
-
-(*Insert multi-reference tracking plots here*)
-
-Final finding:
-
-> With a single actuator, it is **impossible** for both pendulum angles (α, γ) to follow independent reference signals.  
-> Only regulation to zero is feasible due to strong coupling and physical limitations.
-
----
-
-## 📂 Repository Contents
-
+Amirhossein Ehsani  
+University of Tehran  
